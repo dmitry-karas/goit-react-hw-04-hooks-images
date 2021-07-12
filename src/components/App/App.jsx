@@ -25,7 +25,7 @@ export const App = () => {
     Api.getImages(searchQuery, page)
       .then((images) => {
         if (!images.length) {
-          throw new Error();
+          throw new Error(`No results were found for "${searchQuery}"`);
         }
 
         setImages((prevImages) => [...prevImages, ...images]);
@@ -37,7 +37,10 @@ export const App = () => {
             behavior: "smooth",
           });
       })
-      .catch(() => {
+      .catch((err) => {
+        if (err) {
+          console.warn(err);
+        }
         setStatus("idle");
 
         Notify.notFound(searchQuery);
@@ -56,7 +59,7 @@ export const App = () => {
     const repeatedQuery = query === searchQuery;
 
     if (repeatedQuery) {
-      return;
+      return Notify.repeatedQuery(query);
     }
 
     resetState();
