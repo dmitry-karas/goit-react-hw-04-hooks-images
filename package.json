@@ -2,7 +2,7 @@
   "name": "goit-react-hw-04-hooks-images",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://dmitry-karas.github.io/goit-react-hw-04-hooks-images",
+  "homepage": "https://dmitry-karas.github.io/image-finder",
   "dependencies": {
     "@emotion/react": "^11.4.0",
     "@emotion/styled": "^11.3.0",
